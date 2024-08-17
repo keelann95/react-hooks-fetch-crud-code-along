@@ -15,9 +15,9 @@ export const handlers = [
   }),
   rest.post("http://localhost:4000/items", (req, res, ctx) => {
     id++;
-    const item = { id, ...req.body };
-    items.push(item);
-    return res(ctx.json(item));
+    const newItem = { id, ...req.body, isInCart: false };
+    items.push(newItem);
+    return res(ctx.json(newItem));
   }),
   rest.delete("http://localhost:4000/items/:id", (req, res, ctx) => {
     const { id } = req.params;
